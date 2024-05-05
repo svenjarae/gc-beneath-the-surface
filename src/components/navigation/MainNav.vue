@@ -41,6 +41,11 @@ export default {
     .navContainer{
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        z-index: 2;
+        position: fixed;
+        right: 0;
+        left: 0;
     }
 
     nav a{
