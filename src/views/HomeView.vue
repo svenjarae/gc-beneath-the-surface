@@ -1,9 +1,19 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+  import AnimatedComponent from '@/components/animation/AnimatedComponent.vue'
+  import SectionBox from '@/components/section-box/SectionBox.vue'
+
+
+
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+
+    <div class="demo-container">
+        <animated-component animation-type="zoom">
+            <SectionBox></SectionBox>
+        </animated-component>
+    </div>
+    
   </main>
 </template>
