@@ -4,7 +4,7 @@
       <div v-if="backgroundImageVisible" class="bgImgContainer" :style="{ opacity: backgroundImageOpacity, transform: `scale(${backgroundImageScale})` }"></div>
       <SectionBox :opacity="sectionOpacity"></SectionBox>
     </div>
-    <div style="margin-top: 100vh; height: 200vh; background-color: white;"></div>
+    <div style="margin-top: 100vh; height: 200vh; background-color: transparent;"></div>
   </main>
 </template>
 
@@ -32,9 +32,9 @@ onBeforeUnmount(() => {
 function handleScroll() {
   const scrollPosition = window.scrollY;
   const fadeInEnd = 500; // End scroll position for background image fade in
-  const fadeOutStart = 1000; // Start scroll position for background image fade out
-  const zoomInEnd = 300; // End scroll position for zoom in effect
-  const zoomOutStart = 800; // Start scroll position for zoom out effect
+  const fadeOutStart = 100; // Start scroll position for background image fade out
+  const zoomInEnd = 500; // End scroll position for zoom in effect
+  const zoomOutStart = 100; // Start scroll position for zoom out effect
 
   if (scrollPosition <= fadeInEnd) {
     // Fade in background image
@@ -69,11 +69,11 @@ function handleScroll() {
   background-image: url('@/assets/testimg.png');
   background-size: cover;
   background-position: center;
-  width: 100%;
-  height: 100vh;
+  width: 50vw;
+  height: 50vh;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 30%;
+  left: 25%;
   z-index: -1;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
