@@ -44,8 +44,10 @@ export default {
         align-items: center;
         z-index: 2;
         position: fixed;
-        right: 0;
-        left: 0;
+        right: 30px;
+        left: 30px;
+        max-width: 1300px;
+        margin: auto;
     }
 
     nav a{

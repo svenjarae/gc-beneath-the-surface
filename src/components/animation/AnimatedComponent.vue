@@ -1,61 +1,48 @@
 <template>
-    <div ref="target">
-        <transition :name="animationType">
-            <div v-if="animate" class="animated-component" style="color: white;">
-                <slot></slot>
-            </div>
-        </transition>
+    <div 
+      class="animated-content"
+      :class="{ 'animate': isVisible }"
+      style="will-change: opacity, transform;"
+    >
+      <h1 class="title" v-if="title">{{ title }}</h1>
+      <h2 class="subtitle" v-if="subtitle">{{ subtitle }}</h2>
+      <p class="paragraph" v-if="text">{{ text }}</p>
     </div>
-</template>
-
-<script setup lang="ts">
-import { onMounted, ref } from 'vue';
-
-withDefaults(defineProps<{ animationType?: string }>(), { animationType: 'fade' });
-
-const target = ref<Element>();
-const animate = ref<boolean>(false);
-
-const observer = new IntersectionObserver(
-    ([entry]) => {
-        animate.value = entry.isIntersecting;
-    },
-    {
-        threshold: 0.5
-    }
-);
-
-onMounted(() => {
-    observer.observe(target.value as Element);
-});
-</script>
-
-<style scoped>
-
-.animated-component.fade-enter-from,
-.animated-component.zoom-enter-from {
-    transition: none;
-}
-
-/* Fade animation */
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 300ms ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
+  </template>
+  
+  <script setup>
+  import { ref, onMounted } from 'vue';
+  import { gsap } from "gsap";
+  
+  const isVisible = ref(false);
+  
+  onMounted(() => {
+    // Trigger animation when component is mounted
+    isVisible.value = true;
+  });
+  </script>
+  
+  <style>
+  .animated-content {
     opacity: 0;
-}
-
-/* Zoom animation */
-.zoom-enter-active,
-.zoom-leave-active {
-    transition: transform 300ms ease;
-}
-
-.zoom-enter-from,
-.zoom-leave-to {
-    transform: scale(0.9);
-}
-</style>
+    transform: translate3d(0px, 20px, 0px); /* Initial position */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transition animation */
+  }
+  
+  .animate {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px); /* Final position */
+  }
+  
+  .title {
+    /* Add your title styles here */
+  }
+  
+  .subtitle {
+    /* Add your subtitle styles here */
+  }
+  
+  .paragraph {
+    /* Add your paragraph styles here */
+  }
+  </style>
