@@ -49,6 +49,7 @@
     text-align: center;
     z-index: 2;
     width: 100%;
+    padding: 24px 5%;
   }
 
   .titleWrapper{

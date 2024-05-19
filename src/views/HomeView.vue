@@ -64,6 +64,7 @@
   .container{
     height: 100vh;
     position: relative;
+    margin: auto;
   }
 
 

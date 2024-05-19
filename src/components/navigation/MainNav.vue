@@ -46,7 +46,7 @@ export default {
         position: fixed;
         right: 0;
         left: 0;
-        max-width: 1300px;
+        /*max-width: 1300px;*/
         margin: auto;
         z-index: 9;
         background-color: var(--black);

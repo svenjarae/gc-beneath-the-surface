@@ -39,23 +39,6 @@
           <img src="" alt="">
         </div>
       </a>
-      <a class="card">
-        <h2 class="heading">Heading</h2>
-        <div class="paragraphWrapper">
-          <span>Paragraph</span>
-          <span>14</span>
-        </div>
-        <div class="paragraphWrapper">
-          <span>Paragraph</span>
-          <span>2</span>
-        </div>
-        <div class="smallImgWrapper">
-          <img src="" alt="">
-        </div>
-        <div class="imgBg">
-          <img src="" alt="">
-        </div>
-      </a>
     </div>
   </div>
 </template>
@@ -88,6 +71,7 @@
     text-align: center;
     z-index: 2;
     width: 100%;
+    padding: 24px 5%;
   }
 
   .title{
@@ -142,7 +126,7 @@
     grid-column-gap: 32px;
     grid-row-gap: 32px;
     grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .card{
