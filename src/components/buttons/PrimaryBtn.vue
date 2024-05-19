@@ -44,7 +44,7 @@
     }
 
     .primaryBtn:hover {
-        border-width: 2px;
+        border-width: 1px;
         border-color: var(--light-blue);
         box-shadow: 1px 1px 20px 0 var(--orange);
         border-radius: 100px;

@@ -44,10 +44,20 @@ export default {
         align-items: center;
         z-index: 2;
         position: fixed;
-        right: 30px;
-        left: 30px;
+        right: 0;
+        left: 0;
         max-width: 1300px;
         margin: auto;
+        z-index: 9;
+        background-color: var(--black);
+        color: var(--silver);
+        align-items: center;
+        width: 100%;
+        min-height: 10vh;
+        max-height: 15vh;
+        padding: 24px 5%;
+        display: flex;
+        position: fixed;
     }
 
     nav a{

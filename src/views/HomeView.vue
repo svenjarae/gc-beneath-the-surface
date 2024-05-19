@@ -1,28 +1,82 @@
 <template>
   <main>
-    <div class="container">
-      <div class="bgImgContainer"></div>
-      <SectionBox></SectionBox>
+    <div class="bgImgContainer" ref="bgImgContainer"></div>
+    
+    <div class="container" style="background-color: black;">
+      <SectionBox title="High performance injection" subtitle="subtitle" text="text"></SectionBox>
     </div>
 
-    <div>
-      <AnimatedImg></AnimatedImg>
+    <div class="container">
+      
+    </div>
+
+    <div class="container">
+      <FeatureSection title="title" text="text"></FeatureSection>
+    </div>
+
+    <div class="container">
+      <FeatureCard title="title" text="text"></FeatureCard>
     </div>
   </main>
 </template>
 
 <script setup>
   import SectionBox from '@/components/section-box/SectionBox.vue';
-  import AnimatedImg from '@/components/animation/AnimatedImg.vue';
+  import FeatureSection from '@/components/feature-section/FeatureSection.vue';
+  import FeatureCard from '@/components/feature-card/FeatureCard.vue';
+
+  import { ref, onMounted, onBeforeUnmount } from 'vue';
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const bgImgContainer = ref(null);
+
+  onMounted(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: bgImgContainer.value,
+        start: "top top",
+        end: "+=200%", // Adjust this value based on the desired scroll length
+        scrub: true,
+        markers: false // Remove or set to false to hide the markers
+      }
+    });
+
+    tl.fromTo(
+      bgImgContainer.value,
+      { opacity: 0, scale: 1 },
+      { opacity: 1, scale: 1.5, duration: 1 }
+    ).to(
+      bgImgContainer.value,
+      { opacity: 0, scale: 1, duration: 1 }
+    );
+  });
+
+  onBeforeUnmount(() => {
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  });
 </script>
 
 <style>
 
-.bgImgContainer{
-  background-attachment: fixed;
-  width: 100%;
-  height: calc(200vh - 70px);
-  opacity: 0.2;
-}
+  .container{
+    height: 100vh;
+    position: relative;
+  }
+
+
+  .bgImgContainer {
+    background-image: url('@/assets/testimg-gc.jpg'); /* Replace with your image path */
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
 
 </style>
