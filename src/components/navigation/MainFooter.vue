@@ -37,7 +37,7 @@ export default {
                     <li class="footerNewsletter">
                         <p>
                             <strong>Email:</strong>&nbsp;
-                            <a class="link" href="mailto:info@placeholder.com">info@mouldsandmore.net</a><br>
+                            <a class="link" href="mailto:info@placeholder.com">info@placeholder.com</a><br>
                             <strong>Phone:</strong>&nbsp;+00 1234 56789
                         </p>
                     </li>
